@@ -1,0 +1,3 @@
+display_name: GTM Email Outreach
+short_description: Create domain-specific outreach email sequences from website platform and pain-point analysis.
+default_prompt: Create a 4-email outreach sequence for this domain.

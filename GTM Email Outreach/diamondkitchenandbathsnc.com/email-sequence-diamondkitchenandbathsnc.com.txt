@@ -1,0 +1,97 @@
+Domain:
+diamondkitchenandbathsnc.com
+
+Homepage:
+https://www.diamondkitchenandbathsnc.com/
+
+Checked on:
+August 18, 2026
+
+Website Build Summary:
+- Platform: Hibu / Duda-style hosted website builder. The homepage exposes US_HIBU_PRODUCTION, dmAPI, Duda-style runtime parameters, Hibu CDN assets, and Duda/DM widget markup.
+- Builder/theme: Hosted builder layout using "Layout Theme"; not WordPress, not Next.js, not Webflow.
+- SEO tools: Canonical URL and Google site verification are present. No obvious dedicated SEO plugin because this is not WordPress.
+- Tracking/conversion tools: Hibu tracking scripts, Snowplow page-view tracking, Omniture/Yell analytics, UTM cookie capture, click-to-map tracking, and hidden analytics placeholders.
+- Chat/CRM tools: No obvious chat widget found in the homepage markup. Contact is handled through a Hibu contact form.
+- Performance/cache/CDN: Hibu CDN image delivery through le-cdn.hibuwebsites.com, cdn.hibuwebsites.com, and static-res-cdn.websites.hibu.com. Images are lazy-loaded and responsive, but the page includes a large hosted-builder runtime.
+- Notable observations: The site has useful proof assets, kitchen/bath gallery images, service text, a contact form, Mapbox location embed, reCAPTCHA, and 38 years of experience messaging. The technical foundation appears agency/platform-controlled rather than code-owned.
+
+Possible Pain Points:
+- Hosted-builder lock-in can make deeper technical changes, custom landing pages, and AI-assisted edits harder.
+- The site has a gallery, but the project proof could be structured more strongly for SEO, AEO, and conversion.
+- Tracking exists, but it appears mostly platform-level. There may be room for cleaner Google Ads, Meta, call-click, form-submit, and campaign-specific conversion tracking.
+- No obvious chat or advanced lead qualification flow was visible from the homepage markup.
+- Service-area and service-specific campaign pages could be expanded for Raleigh and surrounding remodeling searches.
+- A modern owned-code website could make future edits easier with ChatGPT or Claude instead of relying on a hosted builder interface.
+
+Outreach Angle:
+- Diamond Kitchen and Bath already has real experience, services, and gallery proof. The opportunity is to move from a hosted-builder website into a faster, owned, AI-friendly website foundation that is easier to update, track, and scale for remodeling campaigns.
+
+Email Sequence:
+Subject:
+Making Diamond Kitchen and Bath's website easier to update and grow
+
+Email 1 - Day 1
+
+Hi,
+
+I was looking at Diamond Kitchen and Bath's website. You already have strong trust signals with your remodeling services, gallery images, Raleigh location, and 38 years of experience.
+
+I also noticed the site appears to be built on a Hibu / Duda-style hosted builder. That can work for a basic website, but it can make future updates, landing pages, and deeper tracking harder as your marketing grows.
+
+The direction I wanted to suggest is simple: move the site to an owned AI-friendly website platform. That would make it easier to update pages with ChatGPT or Claude, launch new landing pages faster, and keep the website code under your control.
+
+This is not only about a redesign. It is about making the website easier to change, easier to track, and easier to grow for kitchen and bathroom remodeling searches.
+
+Worth a quick conversation?
+
+Book a call: https://attendez.in/contact
+
+Email 2 - Day 8
+
+Hi,
+
+A quick follow-up. Your website already has a form, a map, service details, and project images. That gives visitors a way to contact you.
+
+The next step is making those lead paths stronger. On a modern platform, you can add better quote-request flows, project-type selection, service-area checks, and even phone number OTP verification where it makes sense.
+
+This also helps with paid campaigns. Calls, form submissions, quote requests, and landing-page visits can be tracked clearly for Google, Meta, and future AI-driven campaigns.
+
+The same platform can also make landing pages faster to create. For example, if you want a Raleigh kitchen remodeling page or a bathroom remodeling page for a nearby city, it should not take weeks to create and publish it.
+
+You can see the service direction here:
+https://attendez.in/services/website-ai
+
+Book a call: https://attendez.in/contact
+
+Email 3 - Day 15
+
+Hi,
+
+One practical reason to move to an owned AI-friendly platform is the update workflow.
+
+In a typical CMS, even a small update can take several steps. You log in, find the page, make the change, preview it, fix the layout, clear caches, and check the live site again.
+
+There is a simpler way to work. You could tell ChatGPT or Claude to add two new gallery images, attach the images, and ask it to push the update to GitHub main. The website can then update from the repo.
+
+There can still be human review when needed. But the day-to-day workflow becomes much faster than working through a hosted builder or plugin-heavy CMS.
+
+For a 50 to 100 page website, this kind of migration can often be completed in under a week when the scope is clear. The important part is preserving the SEO value that already exists while moving to a cleaner structure.
+
+Book a call: https://attendez.in/contact
+
+Email 4 - Day 22
+
+Hi,
+
+Last note from my side. The reason I keep coming back to structure is that search is changing.
+
+Homeowners still use Google, but they also ask AI tools for local recommendations, remodeling ideas, and service comparisons. That makes clear service pages, local pages, FAQs, schema, and project context more important.
+
+A migration should not throw away the SEO value your current website already has. It should preserve what is working, then improve the structure for SEO, AEO, and GEO.
+
+For Diamond Kitchen and Bath, that could mean stronger pages for kitchen remodeling, bathroom remodeling, Raleigh service areas, gallery content, and quote-request flows. It can also make campaign tracking cleaner across Google, Meta, and AI-driven ads.
+
+If this is worth reviewing, you can book a quick call here:
+
+https://attendez.in/contact

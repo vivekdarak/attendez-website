@@ -1,0 +1,119 @@
+﻿@import "tailwindcss";
+
+@source "../app";
+@source "../components";
+@source "../data";
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Aptos Display", "Segoe UI Variable Display", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.985 0.006 247);
+  --surface: oklch(1 0 0);
+  --surface-muted: oklch(0.965 0.011 247);
+  --foreground: oklch(0.17 0.043 258);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.17 0.043 258);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.17 0.043 258);
+  --primary: oklch(0.38 0.154 257);
+  --primary-foreground: oklch(0.99 0.004 247);
+  --primary-glow: oklch(0.62 0.13 214);
+  --secondary: oklch(0.94 0.016 247);
+  --secondary-foreground: oklch(0.24 0.045 258);
+  --muted: oklch(0.952 0.012 247);
+  --muted-foreground: oklch(0.46 0.033 255);
+  --accent: oklch(0.94 0.04 210);
+  --accent-foreground: oklch(0.31 0.11 236);
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.99 0.005 250);
+  --border: oklch(0.895 0.017 247);
+  --input: oklch(0.895 0.017 247);
+  --ring: oklch(0.52 0.13 232);
+  --gradient-hero: radial-gradient(
+      ellipse 70% 54% at 50% -8%,
+      color-mix(in oklab, var(--primary-glow) 16%, transparent),
+      transparent 70%
+    ),
+    linear-gradient(180deg, oklch(0.995 0.004 247) 0%, var(--surface-muted) 100%);
+  --gradient-primary: linear-gradient(135deg, oklch(0.34 0.15 257) 0%, oklch(0.56 0.13 222) 100%);
+  --shadow-soft: 0 1px 2px rgb(15 23 42 / 0.045), 0 1px 3px rgb(15 23 42 / 0.055);
+  --shadow-card: 0 16px 48px -28px rgb(15 23 42 / 0.34), 0 8px 18px -14px rgb(15 23 42 / 0.16);
+  --shadow-focus: 0 0 0 4px color-mix(in oklab, var(--primary-glow) 22%, transparent);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: 0;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--primary-glow) 30%, transparent);
+}
+
+a,
+button,
+summary,
+input,
+textarea,
+select {
+  outline-color: var(--color-ring);
+}
+
+button,
+summary {
+  cursor: pointer;
+}
