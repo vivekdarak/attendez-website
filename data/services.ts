@@ -1,4 +1,4 @@
-﻿import {
+import {
   BotMessageSquare,
   GlobeLock,
   MessageCircleCode,
@@ -45,6 +45,10 @@ export type Service = {
       alt: string;
       description: string;
     }>;
+    heroImage?: {
+      image: string;
+      alt: string;
+    };
     finalCta: {
       title: string;
       description: string;
@@ -56,10 +60,10 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "website-ai",
-    title: "Digital-Marketing-Ready Websites, Built Faster With AI",
+    title: "AI-Built Websites Your Business Actually Owns",
     short: "Fast business websites built for campaigns, tracking, AI discovery, and easy future changes.",
     description:
-      "We design, build, host, and maintain fast business websites that are ready for campaigns from day one. From Google and Meta conversion tracking to SEO, AEO, and GEO structure, clean GitHub-based code, and easy future edits with AI tools, your website is built to perform, not just exist.",
+      "We design, build, host, and maintain fast marketing-ready websites on modern code. Your website can be updated through GitHub, improved with ChatGPT or Claude, and prepared for SEO, AEO, GEO, and ad conversion tracking from day one.",
     icon: GlobeLock,
     outcomes: [
       "Brand-aligned design, mobile-first",
@@ -179,6 +183,10 @@ export const services: Service[] = [
           description: "A training institute website built to explain courses, support admissions, and present a credible brand experience.",
         },
       ],
+      heroImage: {
+        image: "attendez-website/AI-genereated-website-hero.png",
+        alt: "AI-assisted website design workflow shown across desktop and mobile screens",
+      },
 
       faqs: [
         {

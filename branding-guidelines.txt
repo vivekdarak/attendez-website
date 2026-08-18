@@ -1,0 +1,27 @@
+ Primary Brand
+
+  - Deep Trust Blue: #003D91 RGB 0, 61, 145
+  - Cyan Tech Accent: #0099B6 RGB 0, 153, 182
+  - Dark Navy Text: #040F22 RGB 4, 15, 34
+
+  Backgrounds
+
+  - Main Background: #F7FBFE RGB 247, 251, 254
+  - Soft Section Background: #EEF4FB RGB 238, 244, 251
+  - Card / Logo Background: #FFFFFF RGB 255, 255, 255
+
+  Supporting Colors
+
+  - Pale Blue Gray: #E3ECF6 RGB 227, 236, 246
+  - Border Gray Blue: #D4DEE7 RGB 212, 222, 231
+  - Muted Text: #4C596B RGB 76, 89, 107
+  - Light Cyan Accent: #CEF3FA RGB 206, 243, 250
+  - Dark Cyan/Navy Accent Text: #00355F RGB 0, 53, 95
+
+  Use Guidance
+
+  - Use #003D91 for main brand accents, buttons, icons, and key highlights.
+  - Use #0099B6 sparingly for AI/automation/tech glow or secondary highlights.
+  - Use white or #F7FBFE backgrounds for clean B2B feel.
+  - Avoid purple, beige, orange, or heavy gradients.
+  - Icons should mostly be navy/blue line icons, with cyan used only as an accent.

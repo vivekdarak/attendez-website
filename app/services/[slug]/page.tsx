@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -42,27 +42,59 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   const others = services.filter((item) => item.slug !== service.slug).slice(0, 3);
   const page = service.pageContent;
+  const heroImage = page?.heroImage;
 
   return (
     <>
       <section style={{ background: "var(--gradient-hero)" }}>
         <Container className="py-16 sm:py-20 lg:py-24">
-          <div className="mx-auto max-w-3xl">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              {service.title}
-            </h1>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {service.description}
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg">
-                <Link href="/contact">
-                  Book a discovery call <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="/contact">Discuss your website requirements</Link>
-              </Button>
+          <div
+            className={
+              heroImage
+                ? "grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:grid-rows-[auto_1fr] lg:items-center lg:gap-x-12 lg:gap-y-5"
+                : "mx-auto max-w-3xl"
+            }
+          >
+            <div className={heroImage ? "max-w-2xl lg:col-start-1 lg:row-start-1" : undefined}>
+              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                {service.title}
+              </h1>
+            </div>
+
+            {heroImage ? (
+              <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-card)] lg:col-start-2 lg:row-span-2 lg:row-start-1">
+                <Image
+                  src={openinaryUrl(heroImage.image, {
+                    width: 1100,
+                    height: 619,
+                    crop: "fill",
+                    quality: 78,
+                    format: "webp",
+                  })}
+                  alt={heroImage.alt}
+                  fill
+                  priority
+                  unoptimized
+                  sizes="(max-width: 1024px) calc(100vw - 32px), 620px"
+                  className="object-cover"
+                />
+              </div>
+            ) : null}
+
+            <div className={heroImage ? "max-w-2xl lg:col-start-1 lg:row-start-2" : undefined}>
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                {service.description}
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button asChild size="lg">
+                  <Link href="/contact">
+                    Book a discovery call <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <Link href="/contact">Discuss your website requirements</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </Container>

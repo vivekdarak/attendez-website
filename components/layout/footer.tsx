@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Linkedin, Mail, Network } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -7,10 +7,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2 font-semibold">
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                <Network className="h-4 w-4" />
-              </span>
+            <Link href="/" className="flex items-center font-semibold">
               <span className="text-lg">Attendez</span>
             </Link>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
