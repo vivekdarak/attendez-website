@@ -9,7 +9,7 @@ import {
 
 export type Service = {
   slug:
-    | "website-ai"
+    | "ai-website-design-development"
     | "seo-aeo-geo"
     | "workflow-automation"
     | "voice-agent"
@@ -59,8 +59,8 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "website-ai",
-    title: "AI-Built Websites Your Business Actually Owns",
+    slug: "ai-website-design-development",
+    title: "Website Design & Development - AI based",
     short: "Fast business websites built for campaigns, tracking, AI discovery, and easy future changes.",
     description:
       "We design, build, host, and maintain fast marketing-ready websites on modern code. Your website can be updated through GitHub, improved with ChatGPT or Claude, and prepared for SEO, AEO, GEO, and ad conversion tracking from day one.",

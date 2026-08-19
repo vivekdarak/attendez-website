@@ -20,8 +20,8 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-foreground">Services</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="/services/website-ai" className="hover:text-foreground">
-                  AI Website Creation
+                <Link href="/services/ai-website-design-development" className="hover:text-foreground">
+                  Website Design & Development
                 </Link>
               </li>
               <li>
