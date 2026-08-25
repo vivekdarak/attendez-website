@@ -176,8 +176,8 @@ export const services: Service[] = [
         },
         {
           name: "Cooperage The Bar School",
-          domain: "cooperagetbs.cloud",
-          href: "https://cooperagetbs.cloud/",
+          domain: "cooperagetbs.com",
+          href: "https://cooperagetbs.com",
           image: "attendez-website/cooperage-website-screenshot.png",
           alt: "Cooperage The Bar School website homepage built by Attendez",
           description: "A training institute website built to explain courses, support admissions, and present a credible brand experience.",

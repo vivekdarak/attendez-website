@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Check, Network, Route, ShieldCheck } from "lucide-react";
 
 import { Container, Section } from "@/components/layout/container";
@@ -6,6 +7,7 @@ import { ServiceCard } from "@/components/sections/service-card";
 import { ToolLogos } from "@/components/sections/tool-logos";
 import { Button } from "@/components/ui/button";
 import { services } from "@/data/services";
+import { openinaryUrl } from "@/lib/openinary";
 
 const faq = [
   {
@@ -25,6 +27,10 @@ const faq = [
     a: "A discovery sprint typically delivers a prioritized AI opportunity map within 2 weeks. First production automations or a launched website usually ship in 3-6 weeks after that.",
   },
 ];
+
+const websiteWorkExamples = services.find(
+  (service) => service.slug === "ai-website-design-development",
+)?.pageContent?.workExamples;
 
 export default function HomePage() {
   return (
@@ -184,6 +190,65 @@ export default function HomePage() {
           </div>
         </Container>
       </Section>
+
+      {websiteWorkExamples ? (
+        <Section className="bg-surface-muted/40">
+          <Container>
+            <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+              <div className="max-w-2xl">
+                <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                  Websites we have built
+                </h2>
+                <p className="mt-4 text-muted-foreground">
+                  A few live examples of business websites delivered with fast pages, clean presentation, and practical ownership in mind.
+                </p>
+              </div>
+              <Link
+                href="/services/ai-website-design-development"
+                className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+              >
+                View website service <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {websiteWorkExamples.map((example) => (
+                <a
+                  key={example.domain}
+                  href={example.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-soft)] transition-all duration-200 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[var(--shadow-card)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden bg-surface-muted">
+                    <Image
+                      src={openinaryUrl(example.image, {
+                        width: 720,
+                        height: 540,
+                        crop: "fill",
+                        quality: 75,
+                        format: "webp",
+                      })}
+                      alt={example.alt}
+                      fill
+                      unoptimized
+                      sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 56px) / 2), 360px"
+                      className="object-cover transition duration-300 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-lg font-semibold text-foreground">{example.name}</h3>
+                    <p className="mt-1 text-sm font-medium text-primary">{example.domain}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {example.description}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
       <Section className="bg-surface-muted/40">
         <Container>
