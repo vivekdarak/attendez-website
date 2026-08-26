@@ -12,5 +12,5 @@ export function Container({ className, ...props }: HTMLAttributes<HTMLDivElement
 }
 
 export function Section({ className, ...props }: HTMLAttributes<HTMLElement>) {
-  return <section className={cn("py-16 sm:py-20 lg:py-24", className)} {...props} />;
+  return <section className={cn("py-12 sm:py-16 lg:py-24", className)} {...props} />;
 }
