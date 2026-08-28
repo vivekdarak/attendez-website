@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
+import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input, Label, Select, Textarea } from "@/components/ui/form-controls";
 import { services } from "@/data/services";
@@ -158,15 +158,7 @@ export function ContactForm() {
       </div>
 
       <Field label="What are you interested in?" error={errors.service}>
-        <Select value={values.service} onChange={(event) => update("service", event.target.value)}>
-          <option value="">Choose a service (optional)</option>
-          {services.map((service) => (
-            <option key={service.slug} value={service.title}>
-              {service.title}
-            </option>
-          ))}
-          <option value="Not sure yet">Not sure yet - let's talk</option>
-        </Select>
+        <ServiceMultiSelect value={values.service} onChange={(value) => update("service", value)} />
       </Field>
 
       <Field label="Tell us about your project" error={errors.message} required>
@@ -205,6 +197,79 @@ export function ContactForm() {
   );
 }
 
+const serviceOptions = [...services.map((service) => service.title), "Not sure yet - let's talk"];
+
+function ServiceMultiSelect({
+  value,
+  onChange,
+}: {
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const selected = value
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+
+  function toggleOption(option: string) {
+    const next = selected.includes(option)
+      ? selected.filter((item) => item !== option)
+      : [...selected, option];
+
+    onChange(next.join(", "));
+  }
+
+  return (
+    <div
+      className="relative"
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setOpen(false);
+        }
+      }}
+    >
+      <button
+        type="button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        onClick={() => setOpen((current) => !current)}
+        className="flex min-h-10 w-full items-center justify-between gap-3 rounded-lg border border-input bg-surface px-3 py-2 text-left text-sm shadow-sm transition-all focus-visible:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      >
+        <span className={selected.length ? "text-foreground" : "text-muted-foreground"}>
+          {selected.length ? selected.join(", ") : "Choose service(s) (optional)"}
+        </span>
+        <ChevronDown
+          className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`}
+          aria-hidden="true"
+        />
+      </button>
+
+      {open && (
+        <div
+          role="listbox"
+          aria-multiselectable="true"
+          className="absolute z-20 mt-2 w-full overflow-hidden rounded-lg border border-border bg-surface shadow-[var(--shadow-soft)]"
+        >
+          {serviceOptions.map((option) => (
+            <label
+              key={option}
+              className="flex cursor-pointer items-center gap-3 px-3 py-2 text-sm text-foreground transition-colors hover:bg-muted"
+            >
+              <input
+                type="checkbox"
+                checked={selected.includes(option)}
+                onChange={() => toggleOption(option)}
+                className="h-4 w-4 rounded border-input accent-primary"
+              />
+              <span>{option}</span>
+            </label>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 function Field({
   label,
   error,
