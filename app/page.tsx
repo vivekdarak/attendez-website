@@ -41,7 +41,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-3xl text-center">
             <h1
               className="text-4xl font-bold leading-[1.18] tracking-tight text-foreground sm:text-5xl sm:leading-[1.14] lg:text-6xl"
-              aria-label="Transforming Business with AI-based WhatsApp Automation, Website Development, SEO / AEO Services, and Voice Agents"
+              aria-label="Transforming Business with AI-based WhatsApp Automation, Website Development, SEO / AEO Services, Business Automation, and Voice Agents"
             >
               Transforming Business with{" "}
               <span className="bg-[image:var(--gradient-primary)] bg-clip-text text-transparent">
