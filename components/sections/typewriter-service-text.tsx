@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const services = [
   "WhatsApp Automation",
@@ -13,6 +13,7 @@ const services = [
 export function TypewriterServiceText() {
   const [serviceIndex, setServiceIndex] = useState(0);
   const [displayText, setDisplayText] = useState(services[0]);
+  const hasStarted = useRef(false);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -24,7 +25,7 @@ export function TypewriterServiceText() {
     const currentService = services[serviceIndex];
     const nextIndex = (serviceIndex + 1) % services.length;
     const nextService = services[nextIndex];
-    const pauseBeforeDeleting = 1600;
+    const pauseBeforeDeleting = hasStarted.current ? 1600 : 3600;
     const deleteSpeed = 34;
     const typeSpeed = 52;
     let timeoutId = 0;
@@ -54,7 +55,10 @@ export function TypewriterServiceText() {
       }, typeSpeed);
     };
 
-    timeoutId = window.setTimeout(() => deleteText(currentService.length), pauseBeforeDeleting);
+    timeoutId = window.setTimeout(() => {
+      hasStarted.current = true;
+      deleteText(currentService.length);
+    }, pauseBeforeDeleting);
 
     return () => {
       window.clearTimeout(timeoutId);
