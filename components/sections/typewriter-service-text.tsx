@@ -63,7 +63,7 @@ export function TypewriterServiceText() {
   return (
     <span
       aria-hidden="true"
-      className="inline-block min-w-[min(19ch,100%)] whitespace-nowrap pb-1 bg-[image:var(--gradient-primary)] bg-clip-text text-transparent"
+      className="inline-block min-w-[min(19ch,100%)] whitespace-nowrap pb-1 text-[clamp(2rem,8.6vw,2.25rem)] leading-[1.18] bg-[image:var(--gradient-primary)] bg-clip-text text-transparent sm:text-inherit sm:leading-[1.14]"
     >
       {displayText || <span className="invisible">A</span>}
     </span>
