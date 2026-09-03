@@ -7,6 +7,7 @@ import { TypewriterServiceText } from "@/components/sections/typewriter-service-
 import { ServiceCard } from "@/components/sections/service-card";
 import { ToolLogos } from "@/components/sections/tool-logos";
 import { Button } from "@/components/ui/button";
+import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
 import { services } from "@/data/services";
 import { openinaryUrl } from "@/lib/openinary";
 
@@ -40,7 +41,7 @@ export default function HomePage() {
         <Container className="relative py-20 sm:py-28 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
             <h1
-              className="text-4xl font-bold leading-[1.18] tracking-tight text-foreground sm:text-5xl sm:leading-[1.14] lg:text-6xl"
+              className="text-[clamp(1.75rem,7.7vw,2.25rem)] font-bold leading-[1.18] tracking-tight text-foreground sm:text-5xl sm:leading-[1.14] lg:text-6xl"
               aria-label="Transforming Business with AI-based WhatsApp Automation, Website Development, SEO / AEO Services, Business Automation, and Voice Agents"
             >
               Transforming Business with{" "}
@@ -73,13 +74,15 @@ export default function HomePage() {
 
       <section className="border-y border-border/60 bg-surface-muted/50">
         <Container className="py-8">
-          <ToolLogos />
+          <RevealOnScroll>
+            <ToolLogos />
+          </RevealOnScroll>
         </Container>
       </section>
 
       <Section>
         <Container>
-          <div className="mx-auto max-w-2xl text-center">
+          <RevealOnScroll className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Discovery first. Then build what matters.
             </h2>
@@ -87,7 +90,7 @@ export default function HomePage() {
               We don't show up with a hammer looking for nails. We sit with your team, map
               the real workflows, and find the moments where AI changes outcomes.
             </p>
-          </div>
+          </RevealOnScroll>
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
@@ -106,17 +109,16 @@ export default function HomePage() {
                 title: "3. Deploy & operate",
                 body: "Production-grade build with n8n, Postgres, and modern LLMs. Documentation, handover, ongoing support.",
               },
-            ].map(({ icon: Icon, title, body }) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-soft)]"
-              >
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-accent-foreground">
-                  <Icon className="h-5 w-5" />
+            ].map(({ icon: Icon, title, body }, index) => (
+              <RevealOnScroll key={title} delay={index * 90}>
+                <div className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-soft)]">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-accent-foreground">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold text-foreground">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-foreground">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-              </div>
+              </RevealOnScroll>
             ))}
           </div>
         </Container>
@@ -124,7 +126,7 @@ export default function HomePage() {
 
       <Section className="bg-surface-muted/40">
         <Container>
-          <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+          <RevealOnScroll className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
             <div className="max-w-2xl">
               <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 Five services. One discovery-first mindset.
@@ -136,11 +138,13 @@ export default function HomePage() {
             >
               View all services <ArrowRight className="h-4 w-4" />
             </Link>
-          </div>
+          </RevealOnScroll>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
+            {services.map((service, index) => (
+              <RevealOnScroll key={service.slug} delay={(index % 3) * 90}>
+                <ServiceCard service={service} />
+              </RevealOnScroll>
             ))}
           </div>
         </Container>
@@ -149,7 +153,7 @@ export default function HomePage() {
       <Section>
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
+            <RevealOnScroll>
               <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 Practical AI. Owned by you. Built to last.
               </h2>
@@ -178,9 +182,9 @@ export default function HomePage() {
                   <Link href="/about">More about Vivek</Link>
                 </Button>
               </div>
-            </div>
+            </RevealOnScroll>
 
-            <div className="relative">
+            <RevealOnScroll className="relative" delay={120}>
               <div
                 className="rounded-3xl border border-border bg-surface p-8 shadow-[var(--shadow-card)]"
                 style={{
@@ -194,7 +198,7 @@ export default function HomePage() {
                 </blockquote>
                 <p className="mt-6 text-sm text-muted-foreground">Vivek Darak, Attendez</p>
               </div>
-            </div>
+            </RevealOnScroll>
           </div>
         </Container>
       </Section>
@@ -202,7 +206,7 @@ export default function HomePage() {
       {websiteWorkExamples ? (
         <Section className="bg-surface-muted/40">
           <Container>
-            <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+            <RevealOnScroll className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
               <div className="max-w-2xl">
                 <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                   Websites we have built
@@ -217,41 +221,42 @@ export default function HomePage() {
               >
                 View website service <ArrowRight className="h-4 w-4" />
               </Link>
-            </div>
+            </RevealOnScroll>
 
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {websiteWorkExamples.map((example) => (
-                <a
-                  key={example.domain}
-                  href={example.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-soft)] transition-all duration-200 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[var(--shadow-card)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden bg-surface-muted">
-                    <Image
-                      src={openinaryUrl(example.image, {
-                        width: 720,
-                        height: 540,
-                        crop: "fill",
-                        quality: 75,
-                        format: "webp",
-                      })}
-                      alt={example.alt}
-                      fill
-                      unoptimized
-                      sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 56px) / 2), 360px"
-                      className="object-cover transition duration-300 group-hover:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-semibold text-foreground">{example.name}</h3>
-                    <p className="mt-1 text-sm font-medium text-primary">{example.domain}</p>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      {example.description}
-                    </p>
-                  </div>
-                </a>
+              {websiteWorkExamples.map((example, index) => (
+                <RevealOnScroll key={example.domain} delay={(index % 3) * 90}>
+                  <a
+                    href={example.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-soft)] transition-all duration-200 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[var(--shadow-card)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden bg-surface-muted">
+                      <Image
+                        src={openinaryUrl(example.image, {
+                          width: 720,
+                          height: 540,
+                          crop: "fill",
+                          quality: 75,
+                          format: "webp",
+                        })}
+                        alt={example.alt}
+                        fill
+                        unoptimized
+                        sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 56px) / 2), 360px"
+                        className="object-cover transition duration-300 group-hover:scale-[1.02]"
+                      />
+                    </div>
+                    <div className="p-5">
+                      <h3 className="text-lg font-semibold text-foreground">{example.name}</h3>
+                      <p className="mt-1 text-sm font-medium text-primary">{example.domain}</p>
+                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                        {example.description}
+                      </p>
+                    </div>
+                  </a>
+                </RevealOnScroll>
               ))}
             </div>
           </Container>
@@ -260,23 +265,22 @@ export default function HomePage() {
 
       <Section className="bg-surface-muted/40">
         <Container>
-          <div className="mx-auto max-w-2xl text-center">
+          <RevealOnScroll className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Questions, answered
             </h2>
-          </div>
+          </RevealOnScroll>
           <div className="mx-auto mt-10 max-w-3xl space-y-4">
-            {faq.map((item) => (
-              <details
-                key={item.q}
-                className="group rounded-2xl border border-border bg-surface p-5 shadow-[var(--shadow-soft)]"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-foreground">
-                  {item.q}
-                  <span className="text-primary transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
-              </details>
+            {faq.map((item, index) => (
+              <RevealOnScroll key={item.q} delay={index * 70}>
+                <details className="group rounded-2xl border border-border bg-surface p-5 shadow-[var(--shadow-soft)]">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-foreground">
+                    {item.q}
+                    <span className="text-primary transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
+                </details>
+              </RevealOnScroll>
             ))}
           </div>
         </Container>
@@ -284,7 +288,7 @@ export default function HomePage() {
 
       <Section className="pb-24">
         <Container>
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-[image:var(--gradient-primary)] p-10 text-primary-foreground sm:p-14">
+          <RevealOnScroll className="relative overflow-hidden rounded-3xl border border-border bg-[image:var(--gradient-primary)] p-10 text-primary-foreground sm:p-14">
             <div className="relative grid items-center gap-8 md:grid-cols-[1fr_auto]">
               <div>
                 <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
@@ -299,7 +303,7 @@ export default function HomePage() {
                 <Link href="/contact">Book a discovery call</Link>
               </Button>
             </div>
-          </div>
+          </RevealOnScroll>
         </Container>
       </Section>
     </>
