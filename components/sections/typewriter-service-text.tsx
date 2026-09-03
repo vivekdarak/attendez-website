@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 const services = [
-  "WhatsApp Automation",
   "Website Development",
   "SEO / AEO Services",
   "Business Automation",
   "Voice Agents",
+  "WhatsApp Automation",
 ];
 
 export function TypewriterServiceText() {

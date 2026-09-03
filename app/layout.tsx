@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { PageTransition } from "@/components/layout/page-transition";
 
 import "./globals.css";
 
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main>{children}</main>
         <Footer />
+        <PageTransition />
       </body>
     </html>
   );
