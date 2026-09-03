@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowRight, Check, Network, Route, ShieldCheck } from "lucide-react";
 
 import { Container, Section } from "@/components/layout/container";
+import { TypewriterServiceText } from "@/components/sections/typewriter-service-text";
 import { ServiceCard } from "@/components/sections/service-card";
 import { ToolLogos } from "@/components/sections/tool-logos";
 import { Button } from "@/components/ui/button";
@@ -38,10 +39,17 @@ export default function HomePage() {
       <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
         <Container className="relative py-20 sm:py-28 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            <h1
+              className="text-4xl font-bold leading-[1.18] tracking-tight text-foreground sm:text-5xl sm:leading-[1.14] lg:text-6xl"
+              aria-label="Transforming Business with AI-based WhatsApp Automation, Website Development, SEO / AEO Services, and Voice Agents"
+            >
               Transforming Business with{" "}
               <span className="bg-[image:var(--gradient-primary)] bg-clip-text text-transparent">
-                AI-based Solutions
+                AI-based
+              </span>
+              <span className="block sm:inline">
+                <span className="hidden sm:inline"> </span>
+                <TypewriterServiceText />
               </span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
