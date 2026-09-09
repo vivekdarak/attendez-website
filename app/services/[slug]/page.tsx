@@ -43,46 +43,45 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const others = services.filter((item) => item.slug !== service.slug).slice(0, 3);
   const page = service.pageContent;
   const heroImage = page?.heroImage;
+  const heroBackgroundImage = heroImage
+    ? openinaryUrl(heroImage.image, {
+        width: 1920,
+        height: 1080,
+        crop: "fill",
+        quality: 82,
+        format: "webp",
+      })
+    : null;
 
   return (
     <>
-      <section style={{ background: "var(--gradient-hero)" }}>
-        <Container className="py-16 sm:py-20 lg:py-24">
-          <div
-            className={
-              heroImage
-                ? "grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:grid-rows-[auto_1fr] lg:items-center lg:gap-x-12 lg:gap-y-5"
-                : "mx-auto max-w-3xl"
-            }
-          >
-            <div className={heroImage ? "max-w-2xl lg:col-start-1 lg:row-start-1" : undefined}>
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+      <section
+        className={heroBackgroundImage ? "relative isolate overflow-hidden bg-surface-muted" : undefined}
+        style={heroBackgroundImage ? undefined : { background: "var(--gradient-hero)" }}
+      >
+        {heroBackgroundImage ? (
+          <>
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 -z-20 bg-cover bg-[position:58%_center] sm:bg-center"
+              style={{ backgroundImage: `url(${heroBackgroundImage})` }}
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(248_250_252/.86)_0%,rgb(248_250_252/.76)_48%,rgb(248_250_252/.58)_100%)] lg:bg-[linear-gradient(90deg,rgb(248_250_252/.76)_0%,rgb(248_250_252/.62)_38%,rgb(248_250_252/.22)_68%,rgb(248_250_252/.08)_100%)]"
+            />
+          </>
+        ) : null}
+        <Container className={heroBackgroundImage ? "py-20 sm:py-24 lg:py-32" : "py-16 sm:py-20 lg:py-24"}>
+          <div className={heroImage ? "max-w-2xl lg:max-w-xl" : "mx-auto max-w-3xl"}>
+            <div>
+              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                 {service.title}
               </h1>
             </div>
 
-            {heroImage ? (
-              <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-card)] lg:col-start-2 lg:row-span-2 lg:row-start-1">
-                <Image
-                  src={openinaryUrl(heroImage.image, {
-                    width: 1100,
-                    height: 619,
-                    crop: "fill",
-                    quality: 78,
-                    format: "webp",
-                  })}
-                  alt={heroImage.alt}
-                  fill
-                  priority
-                  unoptimized
-                  sizes="(max-width: 1024px) calc(100vw - 32px), 620px"
-                  className="object-cover"
-                />
-              </div>
-            ) : null}
-
-            <div className={heroImage ? "max-w-2xl lg:col-start-1 lg:row-start-2" : undefined}>
-              <p className="text-lg leading-relaxed text-muted-foreground">
+            <div className="mt-6">
+              <p className="text-lg leading-relaxed text-foreground/75">
                 {service.description}
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -160,8 +159,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
           <Section className="bg-surface-muted/40">
             <Container>
-              <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-                <div>
+              <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+                <div className="lg:sticky lg:top-24">
                   <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                     How we work
                   </h2>
