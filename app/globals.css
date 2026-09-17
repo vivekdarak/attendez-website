@@ -117,3 +117,163 @@ button,
 summary {
   cursor: pointer;
 }
+
+.blog-content {
+  color: color-mix(in oklab, var(--foreground) 84%, transparent);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.blog-content > :first-child {
+  margin-top: 0;
+}
+
+.blog-content > :last-child {
+  margin-bottom: 0;
+}
+
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  color: var(--foreground);
+  font-weight: 700;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.blog-content h2 {
+  margin: 3rem 0 1rem;
+  font-size: clamp(1.65rem, 3vw, 2.1rem);
+}
+
+.blog-content h3 {
+  margin: 2.25rem 0 0.75rem;
+  font-size: 1.4rem;
+}
+
+.blog-content h4 {
+  margin: 1.75rem 0 0.6rem;
+  font-size: 1.15rem;
+}
+
+.blog-content p,
+.blog-content ul,
+.blog-content ol,
+.blog-content blockquote,
+.blog-content pre,
+.blog-content table,
+.blog-content figure {
+  margin: 1.25rem 0;
+}
+
+.blog-content ul,
+.blog-content ol {
+  padding-left: 1.5rem;
+}
+
+.blog-content ul {
+  list-style: disc;
+}
+
+.blog-content ol {
+  list-style: decimal;
+}
+
+.blog-content li {
+  margin: 0.45rem 0;
+  padding-left: 0.25rem;
+}
+
+.blog-content li::marker {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.blog-content a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.blog-content a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.blog-content strong {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+.blog-content blockquote {
+  border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  background: var(--surface-muted);
+  padding: 1rem 1.25rem;
+  color: var(--foreground);
+}
+
+.blog-content blockquote > :first-child {
+  margin-top: 0;
+}
+
+.blog-content blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.blog-content code {
+  border-radius: 0.35rem;
+  background: var(--surface-muted);
+  padding: 0.15em 0.4em;
+  color: var(--foreground);
+  font-size: 0.9em;
+}
+
+.blog-content pre {
+  overflow-x: auto;
+  border-radius: var(--radius-xl);
+  background: var(--foreground);
+  padding: 1.25rem;
+  color: var(--background);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.blog-content pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.blog-content img {
+  height: auto;
+  max-width: 100%;
+  border-radius: var(--radius-xl);
+}
+
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.blog-content th,
+.blog-content td {
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.blog-content th {
+  background: var(--surface-muted);
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+.blog-content hr {
+  margin: 2.5rem 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}

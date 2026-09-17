@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: Props) {
               ) : null}
 
               <div
-                className={`prose prose-slate max-w-none ${image ? "mt-10" : ""}`}
+                className={`blog-content ${image ? "mt-10" : ""}`}
                 dangerouslySetInnerHTML={{ __html: post.content_html || "" }}
               />
 
