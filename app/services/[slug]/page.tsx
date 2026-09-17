@@ -9,6 +9,7 @@ import { ServiceCard } from "@/components/sections/service-card";
 import { Button } from "@/components/ui/button";
 import { getService, services } from "@/data/services";
 import { openinaryUrl } from "@/lib/openinary";
+import { getSeoPage, seoPageToMetadata } from "@/lib/directus";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
@@ -28,10 +29,12 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     };
   }
 
-  return {
+  const fallback: Metadata = {
     title: service.title,
     description: service.short,
   };
+
+  return seoPageToMetadata(await getSeoPage(`/services/${slug}`), fallback);
 }
 
 export default async function ServiceDetailPage({ params }: ServicePageProps) {

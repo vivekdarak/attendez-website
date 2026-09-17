@@ -6,12 +6,17 @@ import { Container, Section } from "@/components/layout/container";
 import { ServiceCard } from "@/components/sections/service-card";
 import { Button } from "@/components/ui/button";
 import { services } from "@/data/services";
+import { getSeoPage, seoPageToMetadata } from "@/lib/directus";
 
-export const metadata: Metadata = {
+const fallbackMetadata: Metadata = {
   title: "Services - AI Consulting, Automation & Websites",
   description:
     "Five focused services from Attendez: AI websites, SEO/AEO/GEO, B2B workflow automation with n8n, AI voice agents, and WhatsApp AI as a tech provider.",
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  return seoPageToMetadata(await getSeoPage("/services"), fallbackMetadata);
+}
 
 export default function ServicesPage() {
   return (

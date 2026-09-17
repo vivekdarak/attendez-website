@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight, Check, Network, Route, ShieldCheck } from "lucide-react";
 
@@ -6,27 +7,39 @@ import { Container, Section } from "@/components/layout/container";
 import { TypewriterServiceText } from "@/components/sections/typewriter-service-text";
 import { ServiceCard } from "@/components/sections/service-card";
 import { ToolLogos } from "@/components/sections/tool-logos";
+import { FaqSection } from "@/components/sections/faq-section";
 import { Button } from "@/components/ui/button";
 import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
 import { services } from "@/data/services";
+import { getSeoPage, seoPageToMetadata } from "@/lib/directus";
 import { openinaryUrl } from "@/lib/openinary";
+
+const fallbackMetadata: Metadata = {
+  title: "Attendez - Transforming Business with AI-based Solutions",
+  description:
+    "Attendez helps B2B teams transform their business with AI. Discovery-first consulting, automations, AI voice and WhatsApp agents, websites, and SEO/AEO/GEO.",
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  return seoPageToMetadata(await getSeoPage("/"), fallbackMetadata);
+}
 
 const faq = [
   {
-    q: "Why discovery before implementation?",
-    a: "Most AI projects fail because they start with a tool, not a problem. We begin by mapping your real workflows and bottlenecks, then identify the moments where AI genuinely changes the economics. That's how you avoid expensive demos that never reach production.",
+    question: "Why discovery before implementation?",
+    answer: "Most AI projects fail because they start with a tool, not a problem. We begin by mapping your real workflows and bottlenecks, then identify the moments where AI genuinely changes the economics. That's how you avoid expensive demos that never reach production.",
   },
   {
-    q: "Which tools do you build with?",
-    a: "n8n for orchestration, Postgres for data, the WhatsApp Business API for messaging, Google APIs for infrastructure, and frontier models from OpenAI (ChatGPT) and Anthropic (Claude). Code lives in GitHub. We pick boring, reliable pieces that you can own.",
+    question: "Which tools do you build with?",
+    answer: "n8n for orchestration, Postgres for data, the WhatsApp Business API for messaging, Google APIs for infrastructure, and frontier models from OpenAI (ChatGPT) and Anthropic (Claude). Code lives in GitHub. We pick boring, reliable pieces that you can own.",
   },
   {
-    q: "Do you only work with large companies?",
-    a: "No. We work with founders, SMBs, and B2B teams. Engagements range from a focused 2-week discovery sprint to multi-month build-and-operate retainers.",
+    question: "Do you only work with large companies?",
+    answer: "No. We work with founders, SMBs, and B2B teams. Engagements range from a focused 2-week discovery sprint to multi-month build-and-operate retainers.",
   },
   {
-    q: "How quickly can we see results?",
-    a: "A discovery sprint typically delivers a prioritized AI opportunity map within 2 weeks. First production automations or a launched website usually ship in 3-6 weeks after that.",
+    question: "How quickly can we see results?",
+    answer: "A discovery sprint typically delivers a prioritized AI opportunity map within 2 weeks. First production automations or a launched website usually ship in 3-6 weeks after that.",
   },
 ];
 
@@ -265,24 +278,13 @@ export default function HomePage() {
 
       <Section className="bg-surface-muted/40">
         <Container>
-          <RevealOnScroll className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Questions, answered
-            </h2>
-          </RevealOnScroll>
-          <div className="mx-auto mt-10 max-w-3xl space-y-4">
-            {faq.map((item, index) => (
-              <RevealOnScroll key={item.q} delay={index * 70}>
-                <details className="group rounded-2xl border border-border bg-surface p-5 shadow-[var(--shadow-soft)]">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-foreground">
-                    {item.q}
-                    <span className="text-primary transition-transform group-open:rotate-45">+</span>
-                  </summary>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
-                </details>
-              </RevealOnScroll>
-            ))}
-          </div>
+          <FaqSection
+            items={faq}
+            title="Questions, answered"
+            align="center"
+            animated
+            className="mx-auto max-w-3xl"
+          />
         </Container>
       </Section>
 

@@ -25,6 +25,7 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://attendez.in"),
   title: {
     default: "Attendez - Transforming Business with AI-based Solutions",
     template: "%s | Attendez",

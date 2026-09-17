@@ -3,12 +3,17 @@ import Link from "next/link";
 
 import { Container, Section } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
+import { getSeoPage, seoPageToMetadata } from "@/lib/directus";
 
-export const metadata: Metadata = {
+const fallbackMetadata: Metadata = {
   title: "About Vivek Darak - Founder of Attendez",
   description:
     "Vivek Darak founded Attendez to bring discovery-first AI consulting to B2B teams. Builder of automations, voice agents, and WhatsApp AI on n8n, Postgres, and modern LLMs.",
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  return seoPageToMetadata(await getSeoPage("/about"), fallbackMetadata);
+}
 
 export default function AboutPage() {
   return (

@@ -28,7 +28,7 @@ const initial: ContactInput = {
   website: "",
 };
 
-export function ContactForm() {
+export function ContactForm({ compact = false }: { compact?: boolean }) {
   const [values, setValues] = useState<ContactInput>(initial);
   const [errors, setErrors] = useState<Partial<Record<keyof ContactInput, string>>>({});
   const [submitError, setSubmitError] = useState("");
@@ -99,9 +99,9 @@ export function ContactForm() {
     <form
       onSubmit={onSubmit}
       noValidate
-      className="space-y-5 rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-soft)] sm:p-8"
+      className={`space-y-5 rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-soft)] ${compact ? "" : "sm:p-8"}`}
     >
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className={`grid gap-5 ${compact ? "" : "sm:grid-cols-2"}`}>
         <Field label="Name" error={errors.name} required>
           <Input
             value={values.name}
@@ -123,7 +123,7 @@ export function ContactForm() {
         </Field>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-[8.5rem_minmax(0,1fr)_minmax(0,1fr)]">
+      <div className={`grid gap-5 ${compact ? "" : "sm:grid-cols-[8.5rem_minmax(0,1fr)_minmax(0,1fr)]"}`}>
         <Field label="Code" error={errors.phoneCountryCode}>
           <Select
             value={values.phoneCountryCode}
@@ -186,7 +186,7 @@ export function ContactForm() {
 
       {submitError && <p className="text-sm text-destructive">{submitError}</p>}
 
-      <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={submitting}>
+      <Button type="submit" size="lg" className={compact ? "w-full" : "w-full sm:w-auto"} disabled={submitting}>
         {submitting ? "Sending..." : "Send message"}
       </Button>
 

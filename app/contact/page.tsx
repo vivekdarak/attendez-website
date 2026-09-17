@@ -3,12 +3,17 @@ import { Clock, Mail, MessageCircle } from "lucide-react";
 
 import { Container, Section } from "@/components/layout/container";
 import { ContactForm } from "@/components/sections/contact-form";
+import { getSeoPage, seoPageToMetadata } from "@/lib/directus";
 
-export const metadata: Metadata = {
+const fallbackMetadata: Metadata = {
   title: "Contact Attendez - Book a Discovery Call",
   description:
     "Tell us about your project. We'll get back within 1 business day. AI consulting, automations, voice agents, and WhatsApp AI for B2B teams.",
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  return seoPageToMetadata(await getSeoPage("/contact"), fallbackMetadata);
+}
 
 export default function ContactPage() {
   return (
