@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Container, Section } from "@/components/layout/container";
 import { ContactForm } from "@/components/sections/contact-form";
 import { FaqSection } from "@/components/sections/faq-section";
+import { PreferredSourceButton } from "@/components/sections/preferred-source-button";
 import { directusAssetUrl, getBlogPost, getBlogPosts } from "@/lib/directus";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -89,6 +90,7 @@ export default async function BlogPostPage({ params }: Props) {
                   className="mt-14 border-t border-border pt-10"
                 />
               ) : null}
+              <PreferredSourceButton />
             </div>
 
             <aside className="lg:sticky lg:top-24">
