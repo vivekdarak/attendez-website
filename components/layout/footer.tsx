@@ -80,7 +80,11 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-2 border-t border-border/60 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
           <p>(c) {new Date().getFullYear()} Attendez. Vivek Darak. All rights reserved.</p>
-          <p>Built with discovery, not just AI.</p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href="/terms-of-service" className="hover:text-foreground">Terms of Service</Link>
+            <Link href="/privacy-policy" className="hover:text-foreground">Privacy Policy</Link>
+            <p>Built with discovery, not just AI.</p>
+          </div>
         </div>
       </div>
     </footer>
